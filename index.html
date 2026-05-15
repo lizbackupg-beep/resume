@@ -289,6 +289,44 @@
     }
   
     .download-btn, [id*="download"], button:contains("下载简历") { display: none !important; }
+
+    /* 🛠️ 移动端 UI 适配专项补丁 */
+    @media (max-width: 768px) {
+      /* 1. 优化 Hero 区域，让内容居中，增加呼吸感 */
+      .hero {
+        flex-direction: column !important;
+        text-align: center;
+        padding: 40px 20px !important;
+      }
+      .hero-left {
+        margin-right: 0 !important;
+        margin-bottom: 30px;
+      }
+      .hero-left h1 {
+        font-size: 36px !important; /* 让"Hi, 我是"在手机上更清爽 */
+      }
+      /* 2. 核心调整：让 AI 岗位匹配器占满宽度，不要被挤压 */
+      .ai-matcher {
+        width: 100% !important;
+        margin: 20px 0 !important;
+      }
+      .ai-matcher textarea {
+        width: calc(100% - 20px) !important;
+      }
+      /* 3. 调整头像及右侧标签比例 */
+      .hero-right {
+        width: 100% !important;
+        flex: 1 !important;
+        align-items: center !important;
+      }
+      .hero-right img {
+        width: 200px !important; /* 手机端头像缩小一点 */
+      }
+      .hero-right-tags {
+        grid-template-columns: 1fr 1fr !important; /* 标签改为两栏排列，更精致 */
+        width: 280px !important;
+      }
+    }
   </style>
 
 <style>.download-btn, #download-resume { display: none !important; }</style>
