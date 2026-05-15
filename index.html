@@ -431,7 +431,7 @@
         <!-- 按钮组 -->
         <div class="hero-buttons">
           
-          <button onclick="showWechat()" class="hero-btn hero-btn-contact">联系我</button>
+          <button onclick="openContactModal()" class="hero-btn hero-btn-contact">联系我</button>
         </div>
 
         <!-- AI Matcher -->
@@ -1389,34 +1389,6 @@
       }
     }
     </script>
-
-  <!-- WeChat QR Code Modal -->
-  <div id="wechat-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); backdrop-filter:blur(10px); z-index:9999; justify-content:center; align-items:center;">
-    <div style="background:white; padding:30px; border-radius:16px; text-align:center; position:relative; border:2px solid var(--primary);">
-      <img id="qr-code-img" src="about:blank" alt="微信二维码" style="width: 200px !important; height: 200px !important; max-width: 200px !important; max-height: 200px !important; object-fit: contain !important; display: block; margin: 0 auto;">
-      <p style="margin-top:15px; color:#666; font-size:14px;">扫一扫添加微信，期待与您的交流</p>
-      <span onclick="document.getElementById('wechat-modal').style.display='none'" style="position:absolute; top:10px; right:15px; cursor:pointer; font-size:24px; color:#999;">&times;</span>
-    </div>
-  </div>
-
-  <!-- Click outside modal to close -->
-  <script>
-    document.getElementById('wechat-modal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        this.style.display = 'none';
-      }
-    });
-
-    // WeChat QR Code Data (Base64 - to be filled)
-    let qrData = '';
-
-    function showWechat() {
-      const modal = document.getElementById('wechat-modal');
-      const img = document.getElementById('qr-code-img');
-      img.src = window.wechatQRData;
-      modal.style.display = 'flex';
-    }
-  </script>
 
 </body>
 </html>
